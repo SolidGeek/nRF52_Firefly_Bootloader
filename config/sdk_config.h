@@ -189,14 +189,14 @@
  
 
 #ifndef NRF_BL_DFU_ENTER_METHOD_PINRESET
-#define NRF_BL_DFU_ENTER_METHOD_PINRESET 1
+#define NRF_BL_DFU_ENTER_METHOD_PINRESET 0
 #endif
 
 // <q> NRF_BL_DFU_ENTER_METHOD_GPREGRET  - Enter DFU mode when bit 0 is set in the NRF_POWER_GPREGRET register.
  
 
 #ifndef NRF_BL_DFU_ENTER_METHOD_GPREGRET
-#define NRF_BL_DFU_ENTER_METHOD_GPREGRET 0
+#define NRF_BL_DFU_ENTER_METHOD_GPREGRET 1 // Enter DFU by setting NRF_POWER->GPREGRET = BOOTLOADER_DFU_START; "0xB1" from application followed by NVIC_SystemReset();
 #endif
 
 // <q> NRF_BL_DFU_ENTER_METHOD_BUTTONLESS  - Enter DFU mode when the Boolean enter_buttonless_dfu in DFU settings is true.
