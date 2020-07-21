@@ -9,7 +9,7 @@ The bootloader is based on the "open bootloader" example provided by Nordic Semi
 The bootloader enables device firmware update (DFU) over USB, by using the "nRF Connect Programmer" application. 
 To enter the bootloader two methods can be used:
 
-1. Connect gpio P0.13 (using DFU button) to ground followed by a device reset (using reset button). 
+1. Connect GPIO P0.13 (using DFU button) to ground followed by a device reset (using reset button). 
 2. Set the value of the register NRF_POWER->GPREGRET followed by a device reset (ideally done using NVIC_SystemReset()).
 
 ## Compilation
