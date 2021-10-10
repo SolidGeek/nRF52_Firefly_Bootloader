@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017 - 2019, Nordic Semiconductor ASA
+ * Copyright (c) 2017 - 2021, Nordic Semiconductor ASA
  *
  * All rights reserved.
  *
@@ -180,7 +180,7 @@
 // <47=> 47 (P1.15) 
 
 #ifndef NRF_BL_DFU_ENTER_METHOD_BUTTON_PIN
-#define NRF_BL_DFU_ENTER_METHOD_BUTTON_PIN 13 // P0.13
+#define NRF_BL_DFU_ENTER_METHOD_BUTTON_PIN 42 // (P1.10)
 #endif
 
 // </e>
@@ -1562,6 +1562,17 @@
 
 #ifndef NRFX_USBD_CONFIG_ISO_IN_ZLP
 #define NRFX_USBD_CONFIG_ISO_IN_ZLP 0
+#endif
+
+// <q> NRFX_USBD_USE_WORKAROUND_FOR_ANOMALY_211  - Use workaround for anomaly 211
+ 
+
+// <i> If set, workaround for anomaly 211 will be enabled.
+// <i> Anomaly 211 - Device remains in SUSPEND too long when host resumes
+// <i> bus activity (sending SOF packets) without a RESUME condition.
+
+#ifndef NRFX_USBD_USE_WORKAROUND_FOR_ANOMALY_211
+#define NRFX_USBD_USE_WORKAROUND_FOR_ANOMALY_211 0
 #endif
 
 // </e>

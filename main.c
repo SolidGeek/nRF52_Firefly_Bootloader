@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017 - 2019, Nordic Semiconductor ASA
+ * Copyright (c) 2017 - 2021, Nordic Semiconductor ASA
  *
  * All rights reserved.
  *
@@ -71,13 +71,13 @@ static void on_error(void)
 {
     NRF_LOG_FINAL_FLUSH();
 
-    #if NRF_MODULE_ENABLED(NRF_LOG_BACKEND_RTT)
-        // To allow the buffer to be flushed by the host.
-        nrf_delay_ms(100);
-    #endif
-    #ifdef NRF_DFU_DEBUG_VERSION
-        NRF_BREAKPOINT_COND;
-    #endif
+#if NRF_MODULE_ENABLED(NRF_LOG_BACKEND_RTT)
+    // To allow the buffer to be flushed by the host.
+    nrf_delay_ms(100);
+#endif
+#ifdef NRF_DFU_DEBUG_VERSION
+    NRF_BREAKPOINT_COND;
+#endif
     NVIC_SystemReset();
 }
 
@@ -204,9 +204,9 @@ int main(void)
     nrf_bootloader_mbr_addrs_populate();
 
     // Protect MBR and bootloader code from being overwritten.
-    ret_val = nrf_bootloader_flash_protect(0, MBR_SIZE, false);
+    ret_val = nrf_bootloader_flash_protect(0, MBR_SIZE);
     APP_ERROR_CHECK(ret_val);
-    ret_val = nrf_bootloader_flash_protect(BOOTLOADER_START_ADDR, BOOTLOADER_SIZE, false);
+    ret_val = nrf_bootloader_flash_protect(BOOTLOADER_START_ADDR, BOOTLOADER_SIZE);
     APP_ERROR_CHECK(ret_val);
 
     ret_val = NRF_LOG_INIT(app_timer_cnt_get);

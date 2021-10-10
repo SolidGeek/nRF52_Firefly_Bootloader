@@ -3,6 +3,9 @@
 #include "stdint.h"
 #include "compiler_abstraction.h"
 
+/* This public key is used by the official Firefly Remote, to validate a new bootloader update.
+   Please see https://github.com/NordicSemiconductor/pc-nrfutil/blob/master/README.md to generate your own public key. */
+
 /** @brief Public key used to verify DFU images */
 __ALIGN(4) const uint8_t pk[64] =
 {

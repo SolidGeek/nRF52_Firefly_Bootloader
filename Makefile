@@ -1,14 +1,14 @@
-PROJECT_NAME     := nrf52_firefly_open_bootloader
+PROJECT_NAME     := nrf52_firefly_bootloader
 TARGETS          := nrf52840_xxaa
 OUTPUT_DIRECTORY := _build
 
 # Path to the NRF52 SDK. Change if needed.
-SDK_ROOT := D:/nRF5/nRF5_SDK_16.0.0_98a08e2
+SDK_ROOT := D:/nRF5/nRF5_SDK_17.1.0_ddde560
 SD_PATH := $(SDK_ROOT)/components/softdevice/s140/hex
 MBR_PATH := $(SDK_ROOT)/components/softdevice/mbr/hex
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
 
-SD_FILE := s140_nrf52_7.0.1_softdevice.hex
+SD_FILE := s140_nrf52_7.2.0_softdevice.hex
 MBR_FILE := mbr_nrf52_2.4.1_mbr.hex
 
 $(OUTPUT_DIRECTORY)/$(TARGETS).out: \
@@ -165,8 +165,8 @@ INC_FOLDERS += \
 
 # Libraries common to all targets
 LIB_FILES += \
-  $(SDK_ROOT)/external/nrf_oberon/lib/cortex-m4/hard-float/liboberon_3.0.1.a \
-  $(SDK_ROOT)/external/nrf_cc310_bl/lib/cortex-m4/hard-float/libnrf_cc310_bl_0.9.12.a \
+  $(SDK_ROOT)/external/nrf_oberon/lib/cortex-m4/hard-float/liboberon_3.0.8.a \
+  $(SDK_ROOT)/external/nrf_cc310_bl/lib/cortex-m4/hard-float/libnrf_cc310_bl_0.9.13.a \
 
 # Optimization flags
 OPT = -Os -g3
@@ -177,7 +177,7 @@ OPT = -Os -g3
 CFLAGS += $(OPT)
 CFLAGS += -DAPP_TIMER_V2
 CFLAGS += -DAPP_TIMER_V2_RTC1_ENABLED
-CFLAGS += -DCUSTOM_BOARD_INC=firefly_vesc_board
+CFLAGS += -DCUSTOM_BOARD_INC=nrf52_firefly_board
 CFLAGS += -DCONFIG_GPIO_AS_PINRESET
 CFLAGS += -DFLOAT_ABI_HARD
 CFLAGS += -DMBR_PRESENT
